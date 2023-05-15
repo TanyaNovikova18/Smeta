@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Материалы</title>
+</head>
+<body>
+    <h2>Список товаров</h2>
+    <a href="create/">Добавление товара</a>
+    <table>
+        <thead><th>Категория</th><th>Название</th><th>Цена</th><th></th></thead>
+
+        <tr>
+            <td>{{ product.company.name }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <a href="edit/{{product.id}}">Изменить</a> | <a href="delete/{{product.id}}">Удалить</a>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>
