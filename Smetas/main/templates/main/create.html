@@ -9,20 +9,20 @@
     <form method="POST">
         {% csrf_token %}
         <p>
-            <label>Введите категорию</label><br>
-            <select name="company">
-            {% for company in companies %}
-                <option value="{{company.id}}">{{company.name}}</option>
-            {% endfor %}
-            </select>
-        </p>
-        <p>
             <label>Введите название товара</label><br>
             <input type="text" name="name" />
         </p>
         <p>
             <label>Введите цену</label><br>
             <input type="number" name="price" />
+        </p>
+        <p>
+            <label>Введите категорию</label><br>
+            <select name="company">
+            {% for company in companies %}
+                <option value="{{company.id}}">{{company.name}}</option>
+            {% endfor %}
+            </select>
         </p>
         <input type="submit" value="Сохранить" >
     </form>
