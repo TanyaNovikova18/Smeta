@@ -1,10 +1,12 @@
 from django.db import models
-class Company(models.Model):
-    name = models.CharField(max_length=30)
-
-class Product(models.Model):
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
-    name = models.CharField(max_length=30)
-    price = models.IntegerField()
 
 
+class Base(models.Model):
+    id = models.CharField(primary_key=True, max_length=50)
+    Категория = models.CharField(max_length=200)
+    Название_продукта = models.CharField(max_length=500)
+    Ед_измерения = models.CharField(max_length=50)
+    Цена = models.FloatField()
+
+    def __str__(self):
+        return self.Категория

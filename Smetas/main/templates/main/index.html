@@ -1,16 +1,47 @@
-{% extends 'main/base.html' %}
+{% extends 'main/about.html' %}
 
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
     <div class="features">
+        <h1>{{ title }}</h1>
         <h1>Составь свою смету: прогноз цен на вашей стороне!</h1>
         <p>Контакты:</p>
-        <p>Суркова Маргарита      surckova.margarita2004@yandex.ru        +7-(919)-455-32-93</p>
-        <p>Новикова Татьяна       SKIPPER02.06@yandex.ru                  +7-(992)-232-82-01</p>
-        <p>Шорникова Юля          shornikova_110503@mail.ru               +7-(902)-646-64-83</p>
-        <button class="btn btn-warning"> База стройматериалов</button>
+        <table>
+            <tr>
+                <td>
+                    Суркова Маргарита
+                </td>
+                <td>
+                    Новикова Татьяна
+                </td>
+                <td>
+                    Шорникова Юля
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    surckova.margarita2004@yandex.ru
+                </td>
+                <td>
+                    SKIPPER02.06@yandex.ru
+                </td>
+                <td>
+                    shornikova_110503@mail.ru
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    +7-(919)-455-32-93
+                </td>
+                <td>
+                    +7-(992)-232-82-01
+                </td>
+                <td>
+                    +7-(902)-646-64-83
+                </td>
+            </tr>
+        </table>
     </div>
+
 {% endblock %}
-
-

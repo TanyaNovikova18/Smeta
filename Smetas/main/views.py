@@ -1,54 +1,17 @@
 from django.shortcuts import render
-from .models import Company,Product
-from django.http import HttpResponseRedirect, HttpResponseNotFound
-
+from .models import*
+import pandas as pd
 
 def index(request):
     return render(request, 'main/index.html')
 
-#Полученчение данных из базы
-def about(request):
-    products = Product.objects.all()
-    return render(request, 'main/about.html', {"products" : products})
 
-#Добавление данных из базы
-def create(request):
-    # если запрос POST, сохраняем данные
-    if request.method == "POST":
-        product = Product()
-        product.name = request.POST.get("name")
-        product.price = request.POST.get("price")
-        product.company_id = request.POST.get("company")
-        product.save()
-        return HttpResponseRedirect("/")
-    # передаем данные в шаблон
-    companies = Company.objects.all()
-    return render(request, "create.html", {"companies": companies})
+def base(request):
+    item = Base.objects.all().values()
+    df = pd.DataFrame(item)
+    mydict = {
+        "df": df.to_html()
+    }
+    return render(request, 'main/base.html', context = mydict)
 
 
-# изменение данных в бд
-def edit(request, id):
-    try:
-        product = Product.objects.get(id=id)
-
-        if request.method == "POST":
-            product.company_id = request.POST.get("company")
-            product.name = request.POST.get("name")
-            product.price = request.POST.get("price")
-            product.save()
-            return HttpResponseRedirect("/")
-        else:
-            companies = Company.objects.all()
-            return render(request, "edit.html", {"product": product, "companies": companies})
-    except Product.DoesNotExist:
-        return HttpResponseNotFound("<h2>Product not found</h2>")
-
-
-# удаление данных из бд
-def delete(request, id):
-    try:
-        product = Product.objects.get(id=id)
-        product.delete()
-        return HttpResponseRedirect("/")
-    except Product.DoesNotExist:
-        return HttpResponseNotFound("<h2>Product not found</h2>")

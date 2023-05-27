@@ -6,25 +6,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
+    <title>База стройматериалов</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
 <body>
-    <aside>
-        <img src = "{% static 'main/img/Лого1.png' %}" alt="Логотип">
+    <div class="aside">
+        <aside>
+        <img src = "{% static 'main/img/Дом.png' %}" alt="Логотип">
         <span class="logo">Smeta</span>
         <h3>Навигация</h3>
         <ul>
             <a href="{% url 'home' %}"><li><i class="fa-solid fa-house"></i> Главная</li></a>
             <a href="{% url 'base' %}"><li><i class="fa-solid fa-circle-info"></i> База стройматериалов</li></a>
-            <a href=""><li><i class="fa-solid fa-pen-to-square"></i> Создание сметы</li></a>
+            <a href="{% url 'createBase_home' %}"><li><i class="fa-solid fa-pen-to-square"></i> Создание сметы</li></a>
         </ul>
     </aside>
+    </div>
     <main>
-        {% block content %}
-        {% endblock %}
+        <div class="baze">
+            {{df|safe}}
+        </div>
     </main>
 </body>
 </html>
