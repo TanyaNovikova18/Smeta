@@ -6,9 +6,9 @@ from .forms import *
 
 # Create your views here.
 def createBase_home(request):
-    #form = TypeSelection(request.POST)
-    form = []
-    if request.method == 'POST':
-        form = request.POST.getlist('Тип сметы')
 
-    return render(request, 'createBase/createBase_home.html', {'Тип сметы': form})
+    return render(request, 'createBase/createBase_home.html')
+
+def materialSelection(request):
+
+    return render(request, 'createBase/materialSelection.html')
