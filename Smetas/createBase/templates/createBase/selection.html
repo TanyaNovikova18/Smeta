@@ -1,0 +1,26 @@
+{% extends 'createBase/create_about.html' %}
+{% block title %}Выбор материалов{% endblock %}
+
+{% block content %}
+
+<div class="">
+    <p>Выберите материал</p>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/createBase/materialSelection';">Назад</button>
+    <br>
+
+    <form action="" method="GET">
+        <select name="name" class="form-control" required>
+            {% for c in category %}
+                <option>{{c.name}}</option>
+            {% endfor %}
+        </select>
+        <select name="name1" class="form-control1" required>
+            {% for m in material %}
+                <option>{{m.name}}</option>
+            {% endfor %}
+        </select>
+        {{ form.as_p }}
+        <button onclick="window.location.href = 'http://127.0.0.1:8000/createBase/materialSelection';">Добавить материал</button>
+    </form>
+</div>
+{% endblock %}
